@@ -10,6 +10,13 @@ import java.io.IOException;
 import java.io.Reader;
 
 public class CSVFactory {
+
+    private static final CSVFactory factory = new CSVFactory();
+
+    public static CSVFactory getFactory() {
+        return factory;
+    }
+
     public CSVWriter getWriter(final Appendable out, final char delimiter) throws IOException {
         return new ApacheCsvPrinterAdapter(new CSVPrinter(out, CSVFormat.DEFAULT.withDelimiter(delimiter)));
     }

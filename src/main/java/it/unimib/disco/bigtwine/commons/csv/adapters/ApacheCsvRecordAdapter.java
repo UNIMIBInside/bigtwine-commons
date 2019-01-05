@@ -25,6 +25,11 @@ public class ApacheCsvRecordAdapter implements CSVRecord {
     }
 
     @Override
+    public int size() {
+        return this.record.size();
+    }
+
+    @Override
     public Iterator<String> iterator() {
         return this.record.iterator();
     }
