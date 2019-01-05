@@ -9,7 +9,7 @@ public class LinkedTweet {
 
     public static class Entity {
         private EntityTextRange position;
-        private String resource;
+        private String link;
         private float confidence;
         private String category;
         private boolean isNil;
@@ -19,7 +19,7 @@ public class LinkedTweet {
 
         }
 
-        public Entity(@NotNull EntityTextRange position, @NotNull String resourceOrNilCluster, float confidence, @NotNull String category, boolean isNil) {
+        public Entity(@NotNull EntityTextRange position, @NotNull String linkOrNilCluster, float confidence, @NotNull String category, boolean isNil) {
             if (confidence < 0 || confidence > 1.0) {
                 throw new IllegalArgumentException("Confidence must be between 0 and 1 (included)");
             }
@@ -30,9 +30,9 @@ public class LinkedTweet {
             this.isNil = isNil;
 
             if (isNil) {
-                this.nilCluster = resourceOrNilCluster;
+                this.nilCluster = linkOrNilCluster;
             }else {
-                this.resource = resourceOrNilCluster;
+                this.link = linkOrNilCluster;
             }
         }
 
@@ -44,15 +44,15 @@ public class LinkedTweet {
             this.position = position;
         }
 
-        public String getResource() {
-            return resource;
+        public String getLink() {
+            return link;
         }
 
-        public void setResource(String resource) {
-            if (resource != null && this.nilCluster != null) {
-                throw new IllegalStateException("This entity has already set a resource (an entity cannot have both a resource and a nil cluster).");
+        public void setLink(String link) {
+            if (link != null && this.nilCluster != null) {
+                throw new IllegalStateException("This entity has already set a link (an entity cannot have both a link and a nil cluster).");
             }
-            this.resource = resource;
+            this.link = link;
         }
 
         public float getConfidence() {
@@ -80,8 +80,8 @@ public class LinkedTweet {
         }
 
         public void setNilCluster(String nilCluster) {
-            if (nilCluster != null && this.resource != null) {
-                throw new IllegalStateException("This entity has already set a resource (an entity cannot have both a resource and a nil cluster).");
+            if (nilCluster != null && this.link != null) {
+                throw new IllegalStateException("This entity has already set a link (an entity cannot have both a link and a nil cluster).");
             }
             this.nilCluster = nilCluster;
             this.isNil = nilCluster != null;
