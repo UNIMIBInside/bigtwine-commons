@@ -5,6 +5,6 @@ import it.unimib.disco.bigtwine.commons.processors.SyncProcessor;
 
 import java.io.File;
 
-public interface SyncFileProcessor extends SyncProcessor, FileProcessor {
+public interface SyncFileProcessor<I> extends SyncProcessor, FileProcessor<I> {
     SyncFileExecutor getSyncFileExecutor();
 }

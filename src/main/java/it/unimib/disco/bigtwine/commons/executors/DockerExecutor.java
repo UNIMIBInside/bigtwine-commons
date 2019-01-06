@@ -2,8 +2,10 @@ package it.unimib.disco.bigtwine.commons.executors;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.*;
+import com.github.dockerjava.api.model.Bind;
 import com.github.dockerjava.api.model.Frame;
 import com.github.dockerjava.api.model.HostConfig;
+import com.github.dockerjava.api.model.Volume;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.DockerClientConfig;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class DockerExecutor implements AsyncExecutor, SyncExecutor {
+public abstract class DockerExecutor implements PerpetualExecutor, SyncExecutor {
 
     private DockerClient dockerClient = null;
     private String dockerImage;
@@ -23,7 +25,9 @@ public abstract class DockerExecutor implements AsyncExecutor, SyncExecutor {
         this.dockerImage = dockerImage;
     }
 
-    protected abstract List<String> getArguments();
+    protected abstract String[] buildContainerCommand(String... additionalArgs);
+    protected abstract String[] prepareAdditionalContainerArgs(Object... additionalArgs);
+    protected abstract void validateExecuteArgs(Object... args);
 
     protected DockerClient getDockerClient() {
         if (dockerClient == null) {
@@ -38,28 +42,72 @@ public abstract class DockerExecutor implements AsyncExecutor, SyncExecutor {
         return this.dockerClient;
     }
 
-    protected CreateContainerCmd createContainer(String image, List<String> args) {
+    protected CreateContainerCmd createContainer(String image, String... cmd) {
         return dockerClient
                 .createContainerCmd(image)
-                .withCmd(args);
+                .withCmd(cmd);
     }
 
-    protected CreateContainerResponse runContainer(String image, String... args) {
-        return this.runContainer(image, Arrays.asList(args));
-    }
+    protected abstract void configureContainer(CreateContainerCmd containerCmd, Object... args);
 
-    protected CreateContainerResponse runContainer(String image, List<String> args) {
-        DockerClient dockerClient = this.getDockerClient();
-
-        CreateContainerResponse container = this.createContainer(image, args).exec();
-        dockerClient.startContainerCmd(container.getId()).exec();
+    protected CreateContainerResponse runContainer(CreateContainerCmd containerCmd) {
+        CreateContainerResponse container = containerCmd.exec();
+        this.getDockerClient()
+                .startContainerCmd(container.getId())
+                .exec();
 
         return container;
     }
 
+    protected CreateContainerCmd setAutoRemove(CreateContainerCmd containerCmd, boolean autoRemove) {
+        final HostConfig hostConfig = (containerCmd.getHostConfig() == null) ?
+                HostConfig.newHostConfig() :
+                containerCmd.getHostConfig();
+
+        return containerCmd.withHostConfig(hostConfig.withAutoRemove(autoRemove));
+    }
+
+    protected CreateContainerCmd bindVolumes(CreateContainerCmd containerCmd, Bind... binds) {
+        final HostConfig hostConfig = (containerCmd.getHostConfig() == null) ?
+                HostConfig.newHostConfig() :
+                containerCmd.getHostConfig();
+
+        return containerCmd.withHostConfig(hostConfig.withBinds(binds));
+    }
+
+    protected String getContainerLogs(String containerId) {
+        LogContainerCmd logContainerCmd = this.getDockerClient().logContainerCmd(containerId);
+        logContainerCmd
+                .withStdOut(true)
+                .withStdErr(false);
+
+        final StringBuilder logs = new StringBuilder();
+
+        try {
+            logContainerCmd.exec(new LogContainerResultCallback() {
+                @Override
+                public void onNext(Frame item) {
+                    logs.append(item.toString());
+                    logs.append('\n');
+                }
+            }).awaitCompletion();
+        } catch (InterruptedException e) {
+        }finally {
+            this.getDockerClient().removeContainerCmd(containerId);
+        }
+
+        return logs.toString();
+    }
+
+    protected String getContainerLogs(CreateContainerResponse container) {
+        return this.getContainerLogs(container.getId());
+    }
+
     @Override
     public void run() {
-        CreateContainerResponse container = this.runContainer(this.dockerImage, this.getArguments());
+        CreateContainerCmd containerCmd = this.createContainer(this.dockerImage);
+        this.configureContainer(containerCmd);
+        CreateContainerResponse container = this.runContainer(containerCmd);
         this.containerId = container.getId();
     }
 
@@ -100,28 +148,14 @@ public abstract class DockerExecutor implements AsyncExecutor, SyncExecutor {
     }
 
     @Override
-    public String execute() {
-        DockerClient dockerClient = this.getDockerClient();
-        CreateContainerResponse container = this.runContainer(this.dockerImage, this.getArguments());
-        String containerId = container.getId();
+    public String execute(Object... args) {
+        this.validateExecuteArgs(args);
+        String[] additionalArgs = this.prepareAdditionalContainerArgs(args);
+        String[] cmd = this.buildContainerCommand(additionalArgs);
+        CreateContainerCmd containerCmd = this.createContainer(this.dockerImage, cmd);
+        this.configureContainer(containerCmd, args);
+        CreateContainerResponse container = this.runContainer(containerCmd);
 
-        LogContainerCmd logContainerCmd = dockerClient.logContainerCmd(containerId);
-        logContainerCmd
-                .withStdOut(true)
-                .withStdErr(false);
-        final List<String> logs = new ArrayList<>();
-        try {
-            logContainerCmd.exec(new LogContainerResultCallback() {
-                @Override
-                public void onNext(Frame item) {
-                    logs.add(item.toString());
-                }
-            }).awaitCompletion();
-        } catch (InterruptedException e) {
-        }finally {
-            this.getDockerClient().removeContainerCmd(containerId);
-        }
-
-        return String.join("\n", logs);
+        return this.getContainerLogs(container);
     }
 }

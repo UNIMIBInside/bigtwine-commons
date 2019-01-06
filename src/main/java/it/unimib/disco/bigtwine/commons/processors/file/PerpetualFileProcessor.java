@@ -1,8 +1,7 @@
 package it.unimib.disco.bigtwine.commons.processors.file;
 
-import it.unimib.disco.bigtwine.commons.executors.AsyncExecutor;
-import it.unimib.disco.bigtwine.commons.executors.AsyncFileExecutor;
-import it.unimib.disco.bigtwine.commons.processors.AsyncProcessor;
+import it.unimib.disco.bigtwine.commons.executors.PerpetualFileExecutor;
+import it.unimib.disco.bigtwine.commons.processors.PerpetualProcessor;
 import org.apache.commons.io.filefilter.AndFileFilter;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.HiddenFileFilter;
@@ -13,9 +12,9 @@ import org.apache.commons.io.monitor.FileAlterationObserver;
 
 import java.io.File;
 
-public interface AsyncFileProcessor extends FileProcessor, AsyncProcessor {
+public interface PerpetualFileProcessor<I> extends PerpetualProcessor, FileProcessor<I> {
 
-    AsyncFileExecutor getAsyncFileExecutor();
+    PerpetualFileExecutor getPerpetualFileExecutor();
     FileAlterationMonitor getFileMonitor();
     void setFileMonitor(FileAlterationMonitor fileMonitor);
     boolean getMonitorFilesOnly();

@@ -1,4 +1,7 @@
 package it.unimib.disco.bigtwine.commons.executors;
 
-public interface SyncFileExecutor extends SyncExecutor, FileExecutor {
+import java.io.File;
+
+public interface SyncFileExecutor extends SyncExecutor {
+    String execute(File inputFile, File outputFile);
 }
