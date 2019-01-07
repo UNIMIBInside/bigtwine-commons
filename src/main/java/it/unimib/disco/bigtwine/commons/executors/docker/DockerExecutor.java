@@ -1,25 +1,22 @@
-package it.unimib.disco.bigtwine.commons.executors;
+package it.unimib.disco.bigtwine.commons.executors.docker;
 
 import com.github.dockerjava.api.DockerClient;
 import com.github.dockerjava.api.command.*;
 import com.github.dockerjava.api.model.Bind;
 import com.github.dockerjava.api.model.Frame;
 import com.github.dockerjava.api.model.HostConfig;
-import com.github.dockerjava.api.model.Volume;
 import com.github.dockerjava.core.DefaultDockerClientConfig;
 import com.github.dockerjava.core.DockerClientBuilder;
 import com.github.dockerjava.core.DockerClientConfig;
 import com.github.dockerjava.core.command.LogContainerResultCallback;
+import it.unimib.disco.bigtwine.commons.executors.Executor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-public abstract class DockerExecutor implements PerpetualExecutor, SyncExecutor {
+public abstract class DockerExecutor implements Executor {
 
     private DockerClient dockerClient = null;
     private String dockerImage;
-    private String containerId;
+    protected String containerId;
 
     protected DockerExecutor(String dockerImage) {
         this.dockerImage = dockerImage;
@@ -40,6 +37,10 @@ public abstract class DockerExecutor implements PerpetualExecutor, SyncExecutor 
         }
 
         return this.dockerClient;
+    }
+
+    protected String getDockerImage() {
+        return this.dockerImage;
     }
 
     protected CreateContainerCmd createContainer(String image, String... cmd) {
@@ -101,61 +102,5 @@ public abstract class DockerExecutor implements PerpetualExecutor, SyncExecutor 
 
     protected String getContainerLogs(CreateContainerResponse container) {
         return this.getContainerLogs(container.getId());
-    }
-
-    @Override
-    public void run() {
-        CreateContainerCmd containerCmd = this.createContainer(this.dockerImage);
-        this.configureContainer(containerCmd);
-        CreateContainerResponse container = this.runContainer(containerCmd);
-        this.containerId = container.getId();
-    }
-
-    @Override
-    public void stop() {
-        if (this.containerId == null) {
-            return;
-        }
-
-        this.getDockerClient().stopContainerCmd(this.containerId);
-        this.getDockerClient().removeContainerCmd(this.containerId);
-    }
-
-    @Override
-    public boolean isRunning() {
-        if (this.containerId == null) {
-            return false;
-        }
-
-        InspectContainerResponse containerInfo = this.getDockerClient()
-                .inspectContainerCmd(this.containerId)
-                .exec();
-
-        if (containerInfo == null) {
-            return false;
-        }
-
-        InspectContainerResponse.ContainerState state = containerInfo.getState();
-        if (state == null) {
-            return false;
-        }
-
-        if (state.getRunning() == null) {
-            return false;
-        }
-
-        return state.getRunning();
-    }
-
-    @Override
-    public String execute(Object... args) {
-        this.validateExecuteArgs(args);
-        String[] additionalArgs = this.prepareAdditionalContainerArgs(args);
-        String[] cmd = this.buildContainerCommand(additionalArgs);
-        CreateContainerCmd containerCmd = this.createContainer(this.dockerImage, cmd);
-        this.configureContainer(containerCmd, args);
-        CreateContainerResponse container = this.runContainer(containerCmd);
-
-        return this.getContainerLogs(container);
     }
 }
