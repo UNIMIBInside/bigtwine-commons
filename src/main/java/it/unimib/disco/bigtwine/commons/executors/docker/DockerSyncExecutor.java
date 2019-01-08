@@ -10,8 +10,7 @@ public abstract class DockerSyncExecutor extends DockerExecutor implements SyncE
         super(dockerImage);
     }
 
-    @Override
-    public String execute(Object... args) {
+    protected String execute(Object... args) {
         this.validateExecuteArgs(args);
         String[] additionalArgs = this.prepareAdditionalContainerArgs(args);
         String[] cmd = this.buildContainerCommand(additionalArgs);
