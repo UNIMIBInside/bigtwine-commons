@@ -1,22 +1,24 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
+import it.unimib.disco.bigtwine.commons.models.Location;
+
 public class GeoDecoderRequestMessage implements RequestMessage {
     private String requestId;
     private String outputTopic;
     private String decoder = "default";
-    private String[] addresses;
+    private Location[] locations;
 
     public GeoDecoderRequestMessage() {
     }
 
-    public GeoDecoderRequestMessage(String requestId, String decoder, String[] addresses) {
+    public GeoDecoderRequestMessage(String requestId, String decoder, Location[] locations) {
         this.requestId = requestId;
         this.decoder = decoder;
-        this.addresses = addresses;
+        this.locations = locations;
     }
 
-    public GeoDecoderRequestMessage(String requestId, String decoder, String[] addresses, String outputTopicId) {
-        this(requestId, decoder, addresses);
+    public GeoDecoderRequestMessage(String requestId, String decoder, Location[] locations, String outputTopicId) {
+        this(requestId, decoder, locations);
         this.outputTopic = outputTopicId;
     }
 
@@ -46,11 +48,11 @@ public class GeoDecoderRequestMessage implements RequestMessage {
         this.decoder = decoder;
     }
 
-    public String[] getAddresses() {
-        return addresses;
+    public Location[] getLocations() {
+        return locations;
     }
 
-    public void setAddresses(String[] addresses) {
-        this.addresses = addresses;
+    public void setLocations(Location[] locations) {
+        this.locations = locations;
     }
 }
