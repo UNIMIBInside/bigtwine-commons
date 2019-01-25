@@ -2,10 +2,19 @@ package it.unimib.disco.bigtwine.commons.messaging;
 
 import it.unimib.disco.bigtwine.commons.models.Address;
 
-public class GeoDecoderResponseMessage {
+public class GeoDecoderResponseMessage implements ResponseMessage {
     private String requestId;
     private String decoder = "default";
     private Address[] addresses;
+
+    public GeoDecoderResponseMessage() {
+    }
+
+    public GeoDecoderResponseMessage(String requestId, String decoder, Address[] addresses) {
+        this.requestId = requestId;
+        this.decoder = decoder;
+        this.addresses = addresses;
+    }
 
     public String getRequestId() {
         return requestId;
