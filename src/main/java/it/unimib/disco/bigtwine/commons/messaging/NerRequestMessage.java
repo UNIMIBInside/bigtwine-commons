@@ -2,10 +2,11 @@ package it.unimib.disco.bigtwine.commons.messaging;
 
 import it.unimib.disco.bigtwine.commons.models.BasicTweet;
 
-public class NerRequestMessage {
+public class NerRequestMessage implements RequestMessage {
     private String requestId;
     private String recognizer = "default";
     private BasicTweet[] tweets;
+    private String outputTopic;
 
     public NerRequestMessage() {
     }
@@ -22,6 +23,16 @@ public class NerRequestMessage {
 
     public void setRequestId(String requestId) {
         this.requestId = requestId;
+    }
+
+    @Override
+    public String getOutputTopic() {
+        return outputTopic;
+    }
+
+    @Override
+    public void setOutputTopic(String outputTopic) {
+        this.outputTopic = outputTopic;
     }
 
     public String getRecognizer() {

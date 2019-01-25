@@ -2,7 +2,7 @@ package it.unimib.disco.bigtwine.commons.messaging;
 
 import it.unimib.disco.bigtwine.commons.models.RecognizedTweet;
 
-public class NerResponseMessage {
+public class NerResponseMessage implements ResponseMessage {
     private String requestId;
     private String recognizer = "default";
     private RecognizedTweet[] tweets;
