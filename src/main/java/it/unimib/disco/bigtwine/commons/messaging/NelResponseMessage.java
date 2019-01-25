@@ -2,7 +2,7 @@ package it.unimib.disco.bigtwine.commons.messaging;
 
 import it.unimib.disco.bigtwine.commons.models.LinkedTweet;
 
-public class NelResponseMessage {
+public class NelResponseMessage implements ResponseMessage {
     private String requestId;
     private String linker = "default";
     private LinkedTweet[] tweets;
