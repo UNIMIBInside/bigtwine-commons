@@ -92,6 +92,9 @@ public class LinkedTweet {
         private int start;
         private int end;
 
+        public EntityTextRange() {
+        }
+
         public EntityTextRange(int start, int end) {
             if (start < 0 || end < 0 || end <= start) {
                 throw new IllegalArgumentException("both end and start must be > 0 and end must be > start");

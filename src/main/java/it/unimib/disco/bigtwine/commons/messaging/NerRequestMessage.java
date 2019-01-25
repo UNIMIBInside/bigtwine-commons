@@ -7,6 +7,15 @@ public class NerRequestMessage {
     private String recognizer = "default";
     private BasicTweet[] tweets;
 
+    public NerRequestMessage() {
+    }
+
+    public NerRequestMessage(String requestId, String recognizer, BasicTweet[] tweets) {
+        this.requestId = requestId;
+        this.recognizer = recognizer;
+        this.tweets = tweets;
+    }
+
     public String getRequestId() {
         return requestId;
     }

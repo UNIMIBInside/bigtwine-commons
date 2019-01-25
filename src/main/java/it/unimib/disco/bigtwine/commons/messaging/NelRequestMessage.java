@@ -7,6 +7,15 @@ public class NelRequestMessage {
     private String linker = "default";
     private RecognizedTweet[] tweets;
 
+    public NelRequestMessage() {
+    }
+
+    public NelRequestMessage(String requestId, String linker, RecognizedTweet[] tweets) {
+        this.requestId = requestId;
+        this.linker = linker;
+        this.tweets = tweets;
+    }
+
     public String getRequestId() {
         return requestId;
     }

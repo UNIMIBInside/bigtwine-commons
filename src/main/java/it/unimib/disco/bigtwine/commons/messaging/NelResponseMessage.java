@@ -7,6 +7,15 @@ public class NelResponseMessage {
     private String linker = "default";
     private LinkedTweet[] tweets;
 
+    public NelResponseMessage() {
+    }
+
+    public NelResponseMessage(String requestId, String linker, LinkedTweet[] tweets) {
+        this.requestId = requestId;
+        this.linker = linker;
+        this.tweets = tweets;
+    }
+
     public String getRequestId() {
         return requestId;
     }

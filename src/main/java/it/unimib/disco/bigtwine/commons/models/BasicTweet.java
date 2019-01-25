@@ -4,6 +4,14 @@ public class BasicTweet {
     private String id;
     private String text;
 
+    public BasicTweet() {
+    }
+
+    public BasicTweet(String id, String text) {
+        this.id = id;
+        this.text = text;
+    }
+
     public String getId() {
         return id;
     }
