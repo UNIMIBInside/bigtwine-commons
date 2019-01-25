@@ -1,6 +1,7 @@
 package it.unimib.disco.bigtwine.commons.models;
 
 public class Resource {
+    private String tag;
     private String name;
     private String shortDesc;
     private String thumb;
@@ -18,6 +19,19 @@ public class Resource {
         this.thumbLarge = thumbLarge;
         this.url = url;
         this.coordinates = coordinates;
+    }
+
+    public Resource(String name, String shortDesc, String thumb, String thumbLarge, String url, Coordinate coordinates, String tag) {
+        this(name, shortDesc, thumb, thumbLarge, url, coordinates);
+        this.tag = tag;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 
     public String getName() {

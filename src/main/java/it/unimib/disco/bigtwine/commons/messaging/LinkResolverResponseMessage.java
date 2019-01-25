@@ -2,7 +2,7 @@ package it.unimib.disco.bigtwine.commons.messaging;
 
 import it.unimib.disco.bigtwine.commons.models.Resource;
 
-public class LinkResolverResponseMessage {
+public class LinkResolverResponseMessage implements ResponseMessage {
     private String requestId;
     private Resource[] resources;
 
