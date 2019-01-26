@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models;
 
-public class Resource {
+import java.io.Serializable;
+
+public class Resource implements Serializable {
     private String tag;
     private String name;
     private String shortDesc;

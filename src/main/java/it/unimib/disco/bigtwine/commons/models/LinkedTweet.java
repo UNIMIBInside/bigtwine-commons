@@ -1,8 +1,9 @@
 package it.unimib.disco.bigtwine.commons.models;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public class LinkedTweet {
+public class LinkedTweet implements Serializable {
     private String id;
     private String text;
     private Entity[] entities;

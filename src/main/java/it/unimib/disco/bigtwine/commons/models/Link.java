@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models;
 
-public class Link {
+import java.io.Serializable;
+
+public class Link implements Serializable {
     private String tag;
     private String url;
 

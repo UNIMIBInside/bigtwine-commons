@@ -1,8 +1,9 @@
 package it.unimib.disco.bigtwine.commons.models;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public class RecognizedTweet {
+public class RecognizedTweet implements Serializable {
     private String id;
     private String text;
     private Entity[] entities;

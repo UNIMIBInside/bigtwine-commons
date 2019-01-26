@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private String tag;
     private String address;
 

@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models;
 
-public class BasicTweet {
+import java.io.Serializable;
+
+public class BasicTweet implements Serializable {
     private String id;
     private String text;
 

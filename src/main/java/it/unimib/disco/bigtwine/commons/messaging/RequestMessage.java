@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-public interface RequestMessage {
+import java.io.Serializable;
+
+public interface RequestMessage extends Serializable {
     String getRequestId();
     void setRequestId(String requestId);
     String getOutputTopic();

@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models;
 
-public class Coordinate {
+import java.io.Serializable;
+
+public class Coordinate implements Serializable {
     private double latitude;
     private double longitude;
 
