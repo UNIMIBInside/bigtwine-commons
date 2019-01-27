@@ -1,8 +1,9 @@
 package it.unimib.disco.bigtwine.commons.models;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public class NamedEntity {
+public class NamedEntity implements Serializable {
     private String value;
     private String label;
     private float probability;

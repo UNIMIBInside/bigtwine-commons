@@ -1,14 +1,16 @@
 package it.unimib.disco.bigtwine.commons.models;
 
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public class LinkedEntity {
+public class LinkedEntity implements Serializable {
     private TextRange position;
     private String link;
     private float confidence;
     private String category;
     private boolean isNil;
     private String nilCluster;
+    private Resource resource;
 
     public LinkedEntity() {
 
@@ -80,5 +82,13 @@ public class LinkedEntity {
         }
         this.nilCluster = nilCluster;
         this.isNil = nilCluster != null;
+    }
+
+    public Resource getResource() {
+        return resource;
+    }
+
+    public void setResource(Resource resource) {
+        this.resource = resource;
     }
 }

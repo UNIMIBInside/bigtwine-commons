@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models;
 
-public class TextRange {
+import java.io.Serializable;
+
+public class TextRange implements Serializable {
     private int start;
     private int end;
 
