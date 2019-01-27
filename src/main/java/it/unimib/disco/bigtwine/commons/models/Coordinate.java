@@ -29,4 +29,9 @@ public class Coordinate implements Serializable {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+
+    @Override
+    public String toString() {
+        return "" + this.getLatitude() + "," + this.getLongitude() + "";
+    }
 }
