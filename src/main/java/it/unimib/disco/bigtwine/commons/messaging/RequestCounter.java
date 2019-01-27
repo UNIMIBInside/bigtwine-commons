@@ -1,20 +1,20 @@
-package it.unimib.disco.bigtwine.commons.models;
+package it.unimib.disco.bigtwine.commons.messaging;
 
-public class Counter<T> {
-    private T instance;
+public class RequestCounter<R extends RequestMessage> {
+    private R request;
     private long count;
 
-    public Counter(T instance) {
-        this.instance = instance;
+    public RequestCounter(R request) {
+        this.request = request;
     }
 
-    public Counter(T instance, long count) {
-        this(instance);
+    public RequestCounter(R request, long count) {
+        this(request);
         this.count = count;
     }
 
-    public T get() {
-        return instance;
+    public R get() {
+        return request;
     }
 
     public long getCount() {
