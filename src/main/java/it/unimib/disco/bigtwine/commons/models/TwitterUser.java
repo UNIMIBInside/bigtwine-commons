@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class TwitterUser implements Serializable {
     private String id;
-    private String username;
-    private String screenname;
+    private String name;
+    private String screenName;
     private String location;
     private Coordinate coordinate;
-    private String avatarUrl;
+    private String profileImageUrl;
 
     public TwitterUser() {
     }
@@ -21,20 +21,20 @@ public class TwitterUser implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getScreenname() {
-        return screenname;
+    public String getScreenName() {
+        return screenName;
     }
 
-    public void setScreenname(String screenname) {
-        this.screenname = screenname;
+    public void setScreenName(String screenName) {
+        this.screenName = screenName;
     }
 
     public String getLocation() {
@@ -53,11 +53,11 @@ public class TwitterUser implements Serializable {
         this.coordinate = coordinate;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public String getProfileImageUrl() {
+        return profileImageUrl;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 }
