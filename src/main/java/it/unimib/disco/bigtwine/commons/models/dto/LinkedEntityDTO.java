@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class LinkedEntityDTO implements LinkedEntity, Serializable {
+    private String value;
     private TextRange position;
     private String link;
     private float confidence;
@@ -34,6 +35,21 @@ public class LinkedEntityDTO implements LinkedEntity, Serializable {
         }else {
             this.link = linkOrNilCluster;
         }
+    }
+
+    public LinkedEntityDTO(@NotNull String value, @NotNull TextRange position, @NotNull String linkOrNilCluster, float confidence, @NotNull String category, boolean isNil) {
+        this(position, linkOrNilCluster, confidence, category, isNil);
+        this.value = value;
+    }
+
+    @Override
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public TextRange getPosition() {

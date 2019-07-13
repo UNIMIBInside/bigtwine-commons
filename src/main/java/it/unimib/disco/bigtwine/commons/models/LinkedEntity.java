@@ -3,8 +3,12 @@ package it.unimib.disco.bigtwine.commons.models;
 import javax.validation.constraints.NotNull;
 
 public interface LinkedEntity {
+
     TextRange getPosition();
     void setPosition(@NotNull TextRange position);
+
+    String getValue();
+    void setValue(String value);
     
     String getLink();
     void setLink(String link);
