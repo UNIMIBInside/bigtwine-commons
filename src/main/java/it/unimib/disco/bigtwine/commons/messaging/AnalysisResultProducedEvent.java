@@ -1,6 +1,6 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.AnalysisResultPayload;
+import java.io.Serializable;
 import java.time.Instant;
 
 public class AnalysisResultProducedEvent implements Event {
@@ -8,7 +8,7 @@ public class AnalysisResultProducedEvent implements Event {
 
     private String analysisId;
     private Instant processDate;
-    private AnalysisResultPayload payload;
+    private Serializable payload;
 
     public String getAnalysisId() {
         return analysisId;
@@ -26,11 +26,11 @@ public class AnalysisResultProducedEvent implements Event {
         this.processDate = processDate;
     }
 
-    public AnalysisResultPayload getPayload() {
+    public Serializable getPayload() {
         return payload;
     }
 
-    public void setPayload(AnalysisResultPayload payload) {
+    public void setPayload(Serializable payload) {
         this.payload = payload;
     }
 }

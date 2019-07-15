@@ -1,10 +1,11 @@
 package it.unimib.disco.bigtwine.commons.models.dto;
 
-import it.unimib.disco.bigtwine.commons.models.AnalysisResultPayload;
 import it.unimib.disco.bigtwine.commons.models.LinkedEntity;
 import it.unimib.disco.bigtwine.commons.models.TwitterStatus;
 
-public class NeelProcessedTweetDTO implements AnalysisResultPayload {
+import java.io.Serializable;
+
+public class NeelProcessedTweetDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private TwitterStatus status;
