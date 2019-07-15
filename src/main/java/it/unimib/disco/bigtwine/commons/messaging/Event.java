@@ -1,4 +1,6 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-public interface Event {
+import java.io.Serializable;
+
+public interface Event extends Serializable {
 }
