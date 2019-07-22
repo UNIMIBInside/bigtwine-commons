@@ -18,9 +18,11 @@ public interface PerpetualFileProcessor<I> extends PerpetualProcessor, FileProce
     FileAlterationMonitor getFileMonitor();
     void setFileMonitor(FileAlterationMonitor fileMonitor);
     boolean getMonitorFilesOnly();
-    String getMonitorSuffixFilter();
     void setMonitorFilesOnly(boolean flag);
+    String getMonitorSuffixFilter();
     void setMonitorSuffixFilter(String suffixFilter);
+    default String getMonitorSuffixExclusion() { return null; }
+    default void setMonitorSuffixExclusion(String suffixFilter) {}
 
     default boolean configureFileMonitor() {
         final long POLL_INTERVAL = 100;
@@ -32,6 +34,9 @@ public interface PerpetualFileProcessor<I> extends PerpetualProcessor, FileProce
         if (this.getMonitorSuffixFilter() != null) {
             filters.addFileFilter(FileFilterUtils.suffixFileFilter(this.getMonitorSuffixFilter()));
         }
+        if (this.getMonitorSuffixExclusion() != null) {
+            filters.addFileFilter(FileFilterUtils.notFileFilter(FileFilterUtils.suffixFileFilter(this.getMonitorSuffixExclusion())));
+        }
         FileFilterUtils.and(filters);
 
         FileAlterationObserver observer = new FileAlterationObserver(this.getOutputDirectory(), filters);
@@ -39,6 +44,11 @@ public interface PerpetualFileProcessor<I> extends PerpetualProcessor, FileProce
         FileAlterationListener listener = new FileAlterationListenerAdaptor() {
             @Override
             public void onFileCreate(File file) {
+                processOutputFile(file);
+            }
+
+            @Override
+            public void onFileChange(File file) {
                 processOutputFile(file);
             }
         };
