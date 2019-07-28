@@ -1,16 +1,16 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.Link;
+import it.unimib.disco.bigtwine.commons.models.dto.LinkDTO;
 
 public class LinkResolverRequestMessage implements RequestMessage {
     private String requestId;
     private String outputTopic;
-    private Link[] links;
+    private LinkDTO[] links;
 
     public LinkResolverRequestMessage() {
     }
 
-    public LinkResolverRequestMessage(String requestId, Link[] links) {
+    public LinkResolverRequestMessage(String requestId, LinkDTO[] links) {
         this.requestId = requestId;
         this.links = links;
     }
@@ -33,11 +33,11 @@ public class LinkResolverRequestMessage implements RequestMessage {
         this.outputTopic = topicId;
     }
 
-    public Link[] getLinks() {
+    public LinkDTO[] getLinkDTOs() {
         return links;
     }
 
-    public void setLinks(Link[] links) {
+    public void setLinkDTOs(LinkDTO[] links) {
         this.links = links;
     }
 }

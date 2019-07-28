@@ -1,15 +1,15 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.Resource;
+import it.unimib.disco.bigtwine.commons.models.dto.ResourceDTO;
 
 public class LinkResolverResponseMessage implements ResponseMessage {
     private String requestId;
-    private Resource[] resources;
+    private ResourceDTO[] resources;
 
     public LinkResolverResponseMessage() {
     }
 
-    public LinkResolverResponseMessage(String requestId, Resource[] resources) {
+    public LinkResolverResponseMessage(String requestId, ResourceDTO[] resources) {
         this.requestId = requestId;
         this.resources = resources;
     }
@@ -22,11 +22,11 @@ public class LinkResolverResponseMessage implements ResponseMessage {
         this.requestId = requestId;
     }
 
-    public Resource[] getResources() {
+    public ResourceDTO[] getResourceDTOs() {
         return resources;
     }
 
-    public void setResources(Resource[] resources) {
+    public void setResourceDTOs(ResourceDTO[] resources) {
         this.resources = resources;
     }
 }

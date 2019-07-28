@@ -1,16 +1,16 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.DecodedLocation;
+import it.unimib.disco.bigtwine.commons.models.dto.DecodedLocationDTO;
 
 public class GeoDecoderResponseMessage implements ResponseMessage {
     private String requestId;
     private String decoder = "default";
-    private DecodedLocation[] locations;
+    private DecodedLocationDTO[] locations;
 
     public GeoDecoderResponseMessage() {
     }
 
-    public GeoDecoderResponseMessage(String requestId, String decoder, DecodedLocation[] locations) {
+    public GeoDecoderResponseMessage(String requestId, String decoder, DecodedLocationDTO[] locations) {
         this.requestId = requestId;
         this.decoder = decoder;
         this.locations = locations;
@@ -32,11 +32,11 @@ public class GeoDecoderResponseMessage implements ResponseMessage {
         this.decoder = decoder;
     }
 
-    public DecodedLocation[] getLocations() {
+    public DecodedLocationDTO[] getLocations() {
         return locations;
     }
 
-    public void setLocations(DecodedLocation[] locations) {
+    public void setLocations(DecodedLocationDTO[] locations) {
         this.locations = locations;
     }
 }
