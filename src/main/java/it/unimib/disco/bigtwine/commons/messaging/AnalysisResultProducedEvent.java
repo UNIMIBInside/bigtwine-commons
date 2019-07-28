@@ -1,5 +1,7 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.io.Serializable;
 import java.time.Instant;
 
@@ -8,6 +10,8 @@ public class AnalysisResultProducedEvent implements Event {
 
     private String analysisId;
     private Instant processDate;
+
+    @JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="@class")
     private Serializable payload;
 
     public String getAnalysisId() {
