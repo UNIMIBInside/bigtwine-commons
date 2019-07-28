@@ -48,11 +48,11 @@ public class GeoDecoderRequestMessage implements RequestMessage {
         this.decoder = decoder;
     }
 
-    public LocationDTO[] getLocationDTOs() {
+    public LocationDTO[] getLocations() {
         return locations;
     }
 
-    public void setLocationDTOs(LocationDTO[] locations) {
+    public void setLocations(LocationDTO[] locations) {
         this.locations = locations;
     }
 }

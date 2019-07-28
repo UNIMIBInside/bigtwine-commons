@@ -22,11 +22,11 @@ public class LinkResolverResponseMessage implements ResponseMessage {
         this.requestId = requestId;
     }
 
-    public ResourceDTO[] getResourceDTOs() {
+    public ResourceDTO[] getResources() {
         return resources;
     }
 
-    public void setResourceDTOs(ResourceDTO[] resources) {
+    public void setResources(ResourceDTO[] resources) {
         this.resources = resources;
     }
 }

@@ -33,11 +33,11 @@ public class LinkResolverRequestMessage implements RequestMessage {
         this.outputTopic = topicId;
     }
 
-    public LinkDTO[] getLinkDTOs() {
+    public LinkDTO[] getLinks() {
         return links;
     }
 
-    public void setLinkDTOs(LinkDTO[] links) {
+    public void setLinks(LinkDTO[] links) {
         this.links = links;
     }
 }
