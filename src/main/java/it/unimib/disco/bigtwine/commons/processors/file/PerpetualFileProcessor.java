@@ -37,7 +37,6 @@ public interface PerpetualFileProcessor<I> extends PerpetualProcessor, FileProce
         if (this.getMonitorSuffixExclusion() != null) {
             filters.addFileFilter(FileFilterUtils.notFileFilter(FileFilterUtils.suffixFileFilter(this.getMonitorSuffixExclusion())));
         }
-        FileFilterUtils.and(filters);
 
         FileAlterationObserver observer = new FileAlterationObserver(this.getOutputDirectory(), filters);
         FileAlterationMonitor monitor = new FileAlterationMonitor(POLL_INTERVAL);
