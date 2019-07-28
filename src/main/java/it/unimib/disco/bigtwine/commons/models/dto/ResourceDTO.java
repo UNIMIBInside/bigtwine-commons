@@ -11,12 +11,12 @@ public class ResourceDTO implements Resource, Serializable {
     private String thumb;
     private String thumbLarge;
     private String url;
-    private Coordinate coordinates;
+    private CoordinatesDTO coordinates;
 
     public ResourceDTO() {
     }
 
-    public ResourceDTO(String name, String shortDesc, String thumb, String thumbLarge, String url, Coordinate coordinates) {
+    public ResourceDTO(String name, String shortDesc, String thumb, String thumbLarge, String url, CoordinatesDTO coordinates) {
         this.name = name;
         this.shortDesc = shortDesc;
         this.thumb = thumb;
@@ -25,7 +25,7 @@ public class ResourceDTO implements Resource, Serializable {
         this.coordinates = coordinates;
     }
 
-    public ResourceDTO(String name, String shortDesc, String thumb, String thumbLarge, String url, Coordinate coordinates, String tag) {
+    public ResourceDTO(String name, String shortDesc, String thumb, String thumbLarge, String url, CoordinatesDTO coordinates, String tag) {
         this(name, shortDesc, thumb, thumbLarge, url, coordinates);
         this.tag = tag;
     }
@@ -78,11 +78,11 @@ public class ResourceDTO implements Resource, Serializable {
         this.url = url;
     }
 
-    public Coordinate getCoordinates() {
+    public CoordinatesDTO getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Coordinate coordinates) {
+    public void setCoordinates(CoordinatesDTO coordinates) {
         this.coordinates = coordinates;
     }
 }

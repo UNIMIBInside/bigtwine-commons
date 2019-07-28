@@ -7,20 +7,20 @@ import java.io.Serializable;
 public class LinkedTweetDTO implements LinkedTweet, Serializable {
     private String id;
     private String text;
-    private LinkedEntity[] entities;
+    private LinkedEntityDTO[] entities;
 
     public LinkedTweetDTO() {
 
     }
 
-    public LinkedTweetDTO(String id, String text, LinkedEntity[] entities) {
+    public LinkedTweetDTO(String id, String text, LinkedEntityDTO[] entities) {
         this.id = id;
         this.text = text;
         this.entities = entities;
     }
 
     public LinkedTweetDTO(String id, String text) {
-        this(id, text, new LinkedEntity[0]);
+        this(id, text, new LinkedEntityDTO[0]);
     }
 
     public String getId() {
@@ -39,15 +39,15 @@ public class LinkedTweetDTO implements LinkedTweet, Serializable {
         this.text = text;
     }
 
-    public LinkedEntity[] getEntities() {
+    public LinkedEntityDTO[] getEntities() {
         return entities;
     }
 
-    public void setEntities(LinkedEntity[] entities) {
+    public void setEntities(LinkedEntityDTO[] entities) {
         this.entities = entities;
     }
 
-    public LinkedEntity getEntity(int index) {
+    public LinkedEntityDTO getEntity(int index) {
         return entities[index];
     }
 }

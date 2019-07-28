@@ -1,5 +1,7 @@
 package it.unimib.disco.bigtwine.commons.models;
 
+import it.unimib.disco.bigtwine.commons.models.dto.NamedEntityDTO;
+
 public interface RecognizedTweet {
     String getId();
     void setId(String id);
@@ -7,7 +9,7 @@ public interface RecognizedTweet {
     String getText();
     void setText(String text);
     
-    NamedEntity[] getEntities();
-    void setEntities(NamedEntity[] entities);
-    NamedEntity getEntity(int index);
+    NamedEntityDTO[] getEntities();
+    void setEntities(NamedEntityDTO[] entities);
+    NamedEntityDTO getEntity(int index);
 }

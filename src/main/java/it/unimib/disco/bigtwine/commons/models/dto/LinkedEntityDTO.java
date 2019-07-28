@@ -1,26 +1,24 @@
 package it.unimib.disco.bigtwine.commons.models.dto;
 
-import it.unimib.disco.bigtwine.commons.models.TextRange;
-import it.unimib.disco.bigtwine.commons.models.Resource;
 import it.unimib.disco.bigtwine.commons.models.LinkedEntity;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class LinkedEntityDTO implements LinkedEntity, Serializable {
     private String value;
-    private TextRange position;
+    private TextRangeDTO position;
     private String link;
     private float confidence;
     private String category;
     private boolean isNil;
     private String nilCluster;
-    private Resource resource;
+    private ResourceDTO resource;
 
     public LinkedEntityDTO() {
 
     }
 
-    public LinkedEntityDTO(@NotNull TextRange position, @NotNull String linkOrNilCluster, float confidence, @NotNull String category, boolean isNil) {
+    public LinkedEntityDTO(@NotNull TextRangeDTO position, @NotNull String linkOrNilCluster, float confidence, @NotNull String category, boolean isNil) {
         if (confidence < 0 || confidence > 1.0) {
             throw new IllegalArgumentException("Confidence must be between 0 and 1 (included)");
         }
@@ -37,7 +35,7 @@ public class LinkedEntityDTO implements LinkedEntity, Serializable {
         }
     }
 
-    public LinkedEntityDTO(@NotNull String value, @NotNull TextRange position, @NotNull String linkOrNilCluster, float confidence, @NotNull String category, boolean isNil) {
+    public LinkedEntityDTO(@NotNull String value, @NotNull TextRangeDTO position, @NotNull String linkOrNilCluster, float confidence, @NotNull String category, boolean isNil) {
         this(position, linkOrNilCluster, confidence, category, isNil);
         this.value = value;
     }
@@ -52,11 +50,11 @@ public class LinkedEntityDTO implements LinkedEntity, Serializable {
         this.value = value;
     }
 
-    public TextRange getPosition() {
+    public TextRangeDTO getPosition() {
         return position;
     }
 
-    public void setPosition(@NotNull TextRange position) {
+    public void setPosition(@NotNull TextRangeDTO position) {
         this.position = position;
     }
 
@@ -103,11 +101,11 @@ public class LinkedEntityDTO implements LinkedEntity, Serializable {
         this.isNil = nilCluster != null;
     }
 
-    public Resource getResource() {
+    public ResourceDTO getResource() {
         return resource;
     }
 
-    public void setResource(Resource resource) {
+    public void setResource(ResourceDTO resource) {
         this.resource = resource;
     }
 }

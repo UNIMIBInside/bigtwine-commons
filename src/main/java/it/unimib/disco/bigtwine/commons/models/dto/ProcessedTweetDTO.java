@@ -9,9 +9,9 @@ import java.io.Serializable;
 public class ProcessedTweetDTO implements ProcessedTweet, Serializable {
     private String id;
     private String text;
-    private TwitterUser user;
-    private Coordinate coordinate;
-    private LinkedEntity[] entities;
+    private TwitterUserDTO user;
+    private CoordinatesDTO coordinate;
+    private LinkedEntityDTO[] entities;
 
     public ProcessedTweetDTO() {
     }
@@ -41,27 +41,27 @@ public class ProcessedTweetDTO implements ProcessedTweet, Serializable {
         this.text = text;
     }
 
-    public TwitterUser getUser() {
+    public TwitterUserDTO getUser() {
         return user;
     }
 
-    public void setUser(TwitterUser user) {
+    public void setUser(TwitterUserDTO user) {
         this.user = user;
     }
 
-    public Coordinate getCoordinate() {
+    public CoordinatesDTO getCoordinate() {
         return coordinate;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
+    public void setCoordinate(CoordinatesDTO coordinate) {
         this.coordinate = coordinate;
     }
 
-    public LinkedEntity[] getEntities() {
+    public LinkedEntityDTO[] getEntities() {
         return entities;
     }
 
-    public void setEntities(LinkedEntity[] entities) {
+    public void setEntities(LinkedEntityDTO[] entities) {
         this.entities = entities;
     }
 }

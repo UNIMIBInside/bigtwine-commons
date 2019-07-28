@@ -8,19 +8,19 @@ import java.io.Serializable;
 public class RecognizedTweetDTO implements RecognizedTweet, Serializable {
     private String id;
     private String text;
-    private NamedEntity[] entities;
+    private NamedEntityDTO[] entities;
 
     public RecognizedTweetDTO() {
     }
 
-    public RecognizedTweetDTO(@NotNull String id, String text, NamedEntity[] entities) {
+    public RecognizedTweetDTO(@NotNull String id, String text, NamedEntityDTO[] entities) {
         this.id = id;
         this.text = text;
         this.entities = entities;
     }
 
     public RecognizedTweetDTO(@NotNull String id, String text) {
-        this(id, text, new NamedEntity[0]);
+        this(id, text, new NamedEntityDTO[0]);
     }
 
     public String getId() {
@@ -39,15 +39,15 @@ public class RecognizedTweetDTO implements RecognizedTweet, Serializable {
         this.text = text;
     }
 
-    public NamedEntity[] getEntities() {
+    public NamedEntityDTO[] getEntities() {
         return entities;
     }
 
-    public void setEntities(NamedEntity[] entities) {
+    public void setEntities(NamedEntityDTO[] entities) {
         this.entities = entities;
     }
 
-    public NamedEntity getEntity(int index) {
+    public NamedEntityDTO getEntity(int index) {
         return entities[index];
     }
 }

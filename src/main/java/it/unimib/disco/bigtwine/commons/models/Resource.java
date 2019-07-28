@@ -1,6 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models;
 
 
+import it.unimib.disco.bigtwine.commons.models.dto.CoordinatesDTO;
+
 public interface Resource {
     String getTag();
     void setTag(String tag);
@@ -19,7 +21,7 @@ public interface Resource {
     
     String getUrl();
     void setUrl(String url);
-    
-    Coordinate getCoordinates();
-    void setCoordinates(Coordinate coordinates);
+
+    CoordinatesDTO getCoordinates();
+    void setCoordinates(CoordinatesDTO coordinates);
 }

@@ -1,11 +1,14 @@
 package it.unimib.disco.bigtwine.commons.models;
 
+import it.unimib.disco.bigtwine.commons.models.dto.ResourceDTO;
+import it.unimib.disco.bigtwine.commons.models.dto.TextRangeDTO;
+
 import javax.validation.constraints.NotNull;
 
 public interface LinkedEntity {
 
-    TextRange getPosition();
-    void setPosition(@NotNull TextRange position);
+    TextRangeDTO getPosition();
+    void setPosition(@NotNull TextRangeDTO position);
 
     String getValue();
     void setValue(String value);
@@ -27,6 +30,6 @@ public interface LinkedEntity {
     String getNilCluster();
     void setNilCluster(String nilCluster);
     
-    Resource getResource();
-    void setResource(Resource resource);
+    ResourceDTO getResource();
+    void setResource(ResourceDTO resource);
 }

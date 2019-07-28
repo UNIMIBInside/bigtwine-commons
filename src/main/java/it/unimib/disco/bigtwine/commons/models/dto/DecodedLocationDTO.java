@@ -1,22 +1,21 @@
 package it.unimib.disco.bigtwine.commons.models.dto;
 
-import it.unimib.disco.bigtwine.commons.models.Coordinate;
 import it.unimib.disco.bigtwine.commons.models.DecodedLocation;
 import java.io.Serializable;
 
 public class DecodedLocationDTO implements DecodedLocation, Serializable {
     private String tag;
     private String address;
-    private Coordinate coordinates;
+    private CoordinatesDTO coordinates;
 
     public DecodedLocationDTO() {}
 
-    public DecodedLocationDTO(String address, Coordinate coordinates) {
+    public DecodedLocationDTO(String address, CoordinatesDTO coordinates) {
         this.address = address;
         this.coordinates = coordinates;
     }
 
-    public DecodedLocationDTO(String address, Coordinate coordinates, String tag) {
+    public DecodedLocationDTO(String address, CoordinatesDTO coordinates, String tag) {
         this(address, coordinates);
         this.tag = tag;
     }
@@ -37,11 +36,11 @@ public class DecodedLocationDTO implements DecodedLocation, Serializable {
         this.address = address;
     }
 
-    public Coordinate getCoordinates() {
+    public CoordinatesDTO getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Coordinate coordinates) {
+    public void setCoordinates(CoordinatesDTO coordinates) {
         this.coordinates = coordinates;
     }
 

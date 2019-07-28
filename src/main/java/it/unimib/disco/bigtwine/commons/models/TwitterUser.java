@@ -1,5 +1,7 @@
 package it.unimib.disco.bigtwine.commons.models;
 
+import it.unimib.disco.bigtwine.commons.models.dto.CoordinatesDTO;
+
 public interface TwitterUser {
     String getId();
     void setId(String id);
@@ -13,8 +15,8 @@ public interface TwitterUser {
     String getLocation();
     void setLocation(String location);
 
-    Coordinate getCoordinates();
-    void setCoordinates(Coordinate coordinates);
+    CoordinatesDTO getCoordinates();
+    void setCoordinates(CoordinatesDTO coordinates);
 
     String getProfileImageUrl();
     void setProfileImageUrl(String profileImageUrl);

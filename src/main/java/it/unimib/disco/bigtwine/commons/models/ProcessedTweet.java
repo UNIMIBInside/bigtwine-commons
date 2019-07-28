@@ -1,5 +1,9 @@
 package it.unimib.disco.bigtwine.commons.models;
 
+import it.unimib.disco.bigtwine.commons.models.dto.CoordinatesDTO;
+import it.unimib.disco.bigtwine.commons.models.dto.LinkedEntityDTO;
+import it.unimib.disco.bigtwine.commons.models.dto.TwitterUserDTO;
+
 public interface ProcessedTweet {
     String getId();
     void setId(String id);
@@ -7,12 +11,12 @@ public interface ProcessedTweet {
     String getText();
     void setText(String text);
     
-    TwitterUser getUser();
-    void setUser(TwitterUser user);
+    TwitterUserDTO getUser();
+    void setUser(TwitterUserDTO user);
     
-    Coordinate getCoordinate();
-    void setCoordinate(Coordinate coordinate);
+    CoordinatesDTO getCoordinate();
+    void setCoordinate(CoordinatesDTO coordinate);
     
-    LinkedEntity[] getEntities();
-    void setEntities(LinkedEntity[] entities);
+    LinkedEntityDTO[] getEntities();
+    void setEntities(LinkedEntityDTO[] entities);
 }

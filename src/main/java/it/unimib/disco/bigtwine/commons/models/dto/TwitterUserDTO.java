@@ -9,7 +9,7 @@ public class TwitterUserDTO implements TwitterUser, Serializable {
     private String name;
     private String screenName;
     private String location;
-    private Coordinate coordinates;
+    private CoordinatesDTO coordinates;
     private String profileImageUrl;
 
     public TwitterUserDTO() {
@@ -47,11 +47,11 @@ public class TwitterUserDTO implements TwitterUser, Serializable {
         this.location = location;
     }
 
-    public Coordinate getCoordinates() {
+    public CoordinatesDTO getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Coordinate coordinates) {
+    public void setCoordinates(CoordinatesDTO coordinates) {
         this.coordinates = coordinates;
     }
 

@@ -1,5 +1,7 @@
 package it.unimib.disco.bigtwine.commons.models;
 
+import it.unimib.disco.bigtwine.commons.models.dto.LinkedEntityDTO;
+
 public interface LinkedTweet {
     String getId();
     void setId(String id);
@@ -7,7 +9,7 @@ public interface LinkedTweet {
     String getText();
     void setText(String text);
     
-    LinkedEntity[] getEntities();
-    void setEntities(LinkedEntity[] entities);
-    LinkedEntity getEntity(int index);
+    LinkedEntityDTO[] getEntities();
+    void setEntities(LinkedEntityDTO[] entities);
+    LinkedEntityDTO getEntity(int index);
 }

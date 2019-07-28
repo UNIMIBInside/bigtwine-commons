@@ -7,8 +7,8 @@ import it.unimib.disco.bigtwine.commons.models.TwitterUser;
 public class TwitterStatusDTO implements TwitterStatus {
     private String id;
     private String text;
-    private TwitterUser user;
-    private Coordinate coordinates;
+    private TwitterUserDTO user;
+    private CoordinatesDTO coordinates;
 
     @Override
     public String getId() {
@@ -31,20 +31,20 @@ public class TwitterStatusDTO implements TwitterStatus {
     }
 
     @Override
-    public TwitterUser getUser() {
+    public TwitterUserDTO getUser() {
         return user;
     }
 
     @Override
-    public void setUser(TwitterUser user) {
+    public void setUser(TwitterUserDTO user) {
         this.user = user;
     }
 
-    public Coordinate getCoordinates() {
+    public CoordinatesDTO getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Coordinate coordinates) {
+    public void setCoordinates(CoordinatesDTO coordinates) {
         this.coordinates = coordinates;
     }
 }

@@ -8,22 +8,22 @@ import java.io.Serializable;
 public class NeelProcessedTweetDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private TwitterStatus status;
-    private LinkedEntity[] entities;
+    private TwitterStatusDTO status;
+    private LinkedEntityDTO[] entities;
 
     public TwitterStatus getStatus() {
         return status;
     }
 
-    public void setStatus(TwitterStatus status) {
+    public void setStatus(TwitterStatusDTO status) {
         this.status = status;
     }
 
-    public LinkedEntity[] getEntities() {
+    public LinkedEntityDTO[] getEntities() {
         return entities;
     }
 
-    public void setEntities(LinkedEntity[] entities) {
+    public void setEntities(LinkedEntityDTO[] entities) {
         this.entities = entities;
     }
 }
