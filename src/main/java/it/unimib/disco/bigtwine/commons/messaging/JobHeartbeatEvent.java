@@ -5,6 +5,8 @@ import java.time.Instant;
 public class JobHeartbeatEvent implements Event {
     private String jobId;
     private Instant timestamp;
+    private boolean isLast = false;
+    private double progress = -1;
 
     public JobHeartbeatEvent() {
     }
@@ -23,5 +25,21 @@ public class JobHeartbeatEvent implements Event {
 
     public void setTimestamp(Instant timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public boolean isLast() {
+        return isLast;
+    }
+
+    public void setLast(boolean last) {
+        isLast = last;
+    }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
     }
 }
