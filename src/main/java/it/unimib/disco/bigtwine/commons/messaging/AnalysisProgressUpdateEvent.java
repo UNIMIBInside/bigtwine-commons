@@ -1,10 +1,12 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
+import it.unimib.disco.bigtwine.commons.models.JobTypeEnum;
+
 import java.time.Instant;
 
 public class AnalysisProgressUpdateEvent implements Event {
     private String analysisId;
-    private String jobType;
+    private JobTypeEnum jobType;
     private Instant timestamp;
     private double progress;
 
@@ -19,11 +21,11 @@ public class AnalysisProgressUpdateEvent implements Event {
         this.analysisId = analysisId;
     }
 
-    public String getJobType() {
+    public JobTypeEnum getJobType() {
         return jobType;
     }
 
-    public void setJobType(String jobType) {
+    public void setJobType(JobTypeEnum jobType) {
         this.jobType = jobType;
     }
 
