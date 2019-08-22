@@ -5,7 +5,7 @@ import it.unimib.disco.bigtwine.commons.models.AnalysisStatusEnum;
 public class AnalysisStatusChangeRequestedEvent implements Event {
     private String analysisId;
     private AnalysisStatusEnum desiredStatus;
-    private boolean userRequested;
+    private String user;
 
     public AnalysisStatusChangeRequestedEvent() {
     }
@@ -26,11 +26,11 @@ public class AnalysisStatusChangeRequestedEvent implements Event {
         this.desiredStatus = desiredStatus;
     }
 
-    public boolean isUserRequested() {
-        return userRequested;
+    public String getUser() {
+        return user;
     }
 
-    public void setUserRequested(boolean userRequested) {
-        this.userRequested = userRequested;
+    public void setUser(String user) {
+        this.user = user;
     }
 }

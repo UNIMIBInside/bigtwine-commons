@@ -6,10 +6,10 @@ public class AnalysisStatusChangedEvent implements Event {
     private String analysisId;
     private AnalysisStatusEnum status;
     private String message;
-    private boolean userInitiated;
+    private String user;
 
     public AnalysisStatusChangedEvent() {
-        this.userInitiated = false;
+
     }
 
     public String getAnalysisId() {
@@ -28,10 +28,6 @@ public class AnalysisStatusChangedEvent implements Event {
         this.status = status;
     }
 
-    public boolean isUserInitiated() {
-        return userInitiated;
-    }
-
     public String getMessage() {
         return message;
     }
@@ -40,7 +36,11 @@ public class AnalysisStatusChangedEvent implements Event {
         this.message = message;
     }
 
-    public void setUserInitiated(boolean userInitiated) {
-        this.userInitiated = userInitiated;
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 }
