@@ -6,7 +6,7 @@ public class AnalysisStatusChangedEvent implements Event {
     private String analysisId;
     private AnalysisStatusEnum status;
     private String message;
-    private String user;
+    private Object user;
 
     public AnalysisStatusChangedEvent() {
 
@@ -36,11 +36,11 @@ public class AnalysisStatusChangedEvent implements Event {
         this.message = message;
     }
 
-    public String getUser() {
+    public Object getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(Object user) {
         this.user = user;
     }
 }
