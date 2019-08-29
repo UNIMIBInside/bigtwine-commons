@@ -6,6 +6,8 @@ public class JobHeartbeatEvent implements Event {
     private String jobId;
     private Instant timestamp;
     private boolean isLast = false;
+    private boolean failed = false;
+    private String message = null;
     private double progress = -1;
 
     public JobHeartbeatEvent() {
@@ -41,5 +43,21 @@ public class JobHeartbeatEvent implements Event {
 
     public void setProgress(double progress) {
         this.progress = progress;
+    }
+
+    public boolean isFailed() {
+        return failed;
+    }
+
+    public void setFailed(boolean failed) {
+        this.failed = failed;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
