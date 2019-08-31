@@ -9,6 +9,9 @@ public class AnalysisProgressUpdateEvent implements Event {
     private JobTypeEnum jobType;
     private Instant timestamp;
     private double progress;
+    private boolean completed;
+    private boolean failed;
+    private String message;
 
     public AnalysisProgressUpdateEvent() {
     }
@@ -43,5 +46,29 @@ public class AnalysisProgressUpdateEvent implements Event {
 
     public void setProgress(double progress) {
         this.progress = progress;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public boolean isFailed() {
+        return failed;
+    }
+
+    public void setFailed(boolean failed) {
+        this.failed = failed;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
