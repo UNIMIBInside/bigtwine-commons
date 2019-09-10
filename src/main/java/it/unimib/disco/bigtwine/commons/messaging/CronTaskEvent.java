@@ -61,4 +61,12 @@ public class CronTaskEvent implements Event {
     public void setTasksCount(int tasksCount) {
         this.tasksCount = tasksCount;
     }
+
+    public Instant getExecutedDate() {
+        return executedDate;
+    }
+
+    public void setExecutedDate(Instant executedDate) {
+        this.executedDate = executedDate;
+    }
 }
