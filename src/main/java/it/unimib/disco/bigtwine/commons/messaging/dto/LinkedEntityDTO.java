@@ -1,10 +1,9 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.LinkedEntity;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class LinkedEntityDTO implements LinkedEntity, Serializable {
+public class LinkedEntityDTO implements Serializable {
     private String value;
     private TextRangeDTO position;
     private String link;
@@ -40,12 +39,10 @@ public class LinkedEntityDTO implements LinkedEntity, Serializable {
         this.value = value;
     }
 
-    @Override
     public String getValue() {
         return value;
     }
 
-    @Override
     public void setValue(String value) {
         this.value = value;
     }

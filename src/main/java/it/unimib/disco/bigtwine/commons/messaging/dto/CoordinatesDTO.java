@@ -1,9 +1,8 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.Coordinate;
 import java.io.Serializable;
 
-public class CoordinatesDTO implements Coordinate, Serializable {
+public class CoordinatesDTO implements Serializable {
     private double latitude;
     private double longitude;
 

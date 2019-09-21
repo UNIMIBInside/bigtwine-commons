@@ -1,10 +1,9 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.Resource;
-import it.unimib.disco.bigtwine.commons.models.Coordinate;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class ResourceDTO implements Resource, Serializable {
+public class ResourceDTO implements Serializable {
     private String tag;
     private String name;
     private String shortDesc;
@@ -25,7 +24,7 @@ public class ResourceDTO implements Resource, Serializable {
         this.coordinates = coordinates;
     }
 
-    public ResourceDTO(String name, String shortDesc, String thumb, String thumbLarge, String url, CoordinatesDTO coordinates, String tag) {
+    public ResourceDTO(String name, String shortDesc, String thumb, String thumbLarge, String url, CoordinatesDTO coordinates, @NotNull String tag) {
         this(name, shortDesc, thumb, thumbLarge, url, coordinates);
         this.tag = tag;
     }
@@ -34,7 +33,7 @@ public class ResourceDTO implements Resource, Serializable {
         return tag;
     }
 
-    public void setTag(String tag) {
+    public void setTag(@NotNull String tag) {
         this.tag = tag;
     }
 

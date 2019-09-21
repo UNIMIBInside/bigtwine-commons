@@ -1,10 +1,9 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.NamedEntity;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class NamedEntityDTO implements NamedEntity, Serializable {
+public class NamedEntityDTO implements Serializable {
     private String value;
     private String label;
     private float probability;

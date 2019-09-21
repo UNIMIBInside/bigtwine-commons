@@ -1,9 +1,8 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.TextRange;
 import java.io.Serializable;
 
-public class TextRangeDTO implements TextRange, Serializable {
+public class TextRangeDTO implements Serializable {
     private int start;
     private int end;
 
@@ -23,9 +22,6 @@ public class TextRangeDTO implements TextRange, Serializable {
     }
 
     public void setStart(int start) {
-        if (start < 0 || end <= start) {
-            //throw new IllegalArgumentException("both end and start must be > 0 and end must be > start");
-        }
         this.start = start;
     }
 
@@ -34,9 +30,6 @@ public class TextRangeDTO implements TextRange, Serializable {
     }
 
     public void setEnd(int end) {
-        if (end < 0 || end <= start) {
-            //throw new IllegalArgumentException("both end and start must be > 0 and end must be > start");
-        }
         this.end = end;
     }
 }

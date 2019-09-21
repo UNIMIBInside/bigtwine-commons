@@ -1,9 +1,8 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.DecodedLocation;
 import java.io.Serializable;
 
-public class DecodedLocationDTO implements DecodedLocation, Serializable {
+public class DecodedLocationDTO implements Serializable {
     private String tag;
     private String address;
     private CoordinatesDTO coordinates;

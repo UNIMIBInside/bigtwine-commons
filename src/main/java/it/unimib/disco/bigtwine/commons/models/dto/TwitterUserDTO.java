@@ -1,7 +1,8 @@
 package it.unimib.disco.bigtwine.commons.models.dto;
 
+import it.unimib.disco.bigtwine.commons.messaging.dto.CoordinatesDTO;
 import it.unimib.disco.bigtwine.commons.models.TwitterUser;
-import it.unimib.disco.bigtwine.commons.models.Coordinate;
+
 import java.io.Serializable;
 
 public class TwitterUserDTO implements TwitterUser, Serializable {

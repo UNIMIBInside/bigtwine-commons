@@ -1,6 +1,6 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.dto.LocationDTO;
+import it.unimib.disco.bigtwine.commons.messaging.dto.LocationDTO;
 
 public class GeoDecoderRequestMessage implements RequestMessage {
     private String requestId;

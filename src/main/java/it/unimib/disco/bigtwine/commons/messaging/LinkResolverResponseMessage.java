@@ -1,6 +1,6 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.dto.ResourceDTO;
+import it.unimib.disco.bigtwine.commons.messaging.dto.ResourceDTO;
 
 public class LinkResolverResponseMessage implements ResponseMessage {
     private String requestId;

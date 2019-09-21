@@ -1,9 +1,9 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.Link;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class LinkDTO implements Link, Serializable {
+public class LinkDTO implements Serializable {
     private String tag;
     private String url;
 
@@ -14,7 +14,7 @@ public class LinkDTO implements Link, Serializable {
         this.url = url;
     }
 
-    public LinkDTO(String url, String tag) {
+    public LinkDTO(String url, @NotNull String tag) {
         this.tag = tag;
         this.url = url;
     }
@@ -23,7 +23,7 @@ public class LinkDTO implements Link, Serializable {
         return tag;
     }
 
-    public void setTag(String tag) {
+    public void setTag(@NotNull String tag) {
         this.tag = tag;
     }
 

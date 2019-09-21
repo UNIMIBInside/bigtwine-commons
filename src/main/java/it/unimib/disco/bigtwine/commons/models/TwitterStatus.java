@@ -1,6 +1,6 @@
 package it.unimib.disco.bigtwine.commons.models;
 
-import it.unimib.disco.bigtwine.commons.models.dto.CoordinatesDTO;
+import it.unimib.disco.bigtwine.commons.messaging.dto.CoordinatesDTO;
 import it.unimib.disco.bigtwine.commons.models.dto.TwitterUserDTO;
 
 public interface TwitterStatus {

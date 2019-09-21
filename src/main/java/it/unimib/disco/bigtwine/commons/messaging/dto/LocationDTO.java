@@ -1,9 +1,9 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.models.Location;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class LocationDTO implements Location, Serializable {
+public class LocationDTO implements Serializable {
     private String tag;
     private String address;
 
@@ -13,7 +13,7 @@ public class LocationDTO implements Location, Serializable {
         this.address = address;
     }
 
-    public LocationDTO(String address, String tag) {
+    public LocationDTO(String address, @NotNull String tag) {
         this(address);
         this.tag = tag;
     }
@@ -22,7 +22,7 @@ public class LocationDTO implements Location, Serializable {
         return tag;
     }
 
-    public void setTag(String tag) {
+    public void setTag(@NotNull String tag) {
         this.tag = tag;
     }
 

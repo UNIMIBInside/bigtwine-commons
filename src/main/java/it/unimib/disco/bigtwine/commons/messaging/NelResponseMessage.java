@@ -1,19 +1,19 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.dto.LinkedTweetDTO;
+import it.unimib.disco.bigtwine.commons.messaging.dto.LinkedTextDTO;
 
 public class NelResponseMessage implements ResponseMessage {
     private String requestId;
     private String linker = "default";
-    private LinkedTweetDTO[] tweets;
+    private LinkedTextDTO[] texts;
 
     public NelResponseMessage() {
     }
 
-    public NelResponseMessage(String requestId, String linker, LinkedTweetDTO[] tweets) {
+    public NelResponseMessage(String requestId, String linker, LinkedTextDTO[] texts) {
         this.requestId = requestId;
         this.linker = linker;
-        this.tweets = tweets;
+        this.texts = texts;
     }
 
     public String getRequestId() {
@@ -32,11 +32,11 @@ public class NelResponseMessage implements ResponseMessage {
         this.linker = linker;
     }
 
-    public LinkedTweetDTO[] getTweets() {
-        return tweets;
+    public LinkedTextDTO[] getTexts() {
+        return texts;
     }
 
-    public void setTweets(LinkedTweetDTO[] tweets) {
-        this.tweets = tweets;
+    public void setTexts(LinkedTextDTO[] texts) {
+        this.texts = texts;
     }
 }

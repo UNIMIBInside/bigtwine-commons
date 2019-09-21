@@ -1,19 +1,19 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
-import it.unimib.disco.bigtwine.commons.models.dto.RecognizedTweetDTO;
+import it.unimib.disco.bigtwine.commons.messaging.dto.RecognizedTextDTO;
 
 public class NerResponseMessage implements ResponseMessage {
     private String requestId;
     private String recognizer = "default";
-    private RecognizedTweetDTO[] tweets;
+    private RecognizedTextDTO[] texts;
 
     public NerResponseMessage() {
     }
 
-    public NerResponseMessage(String requestId, String recognizer, RecognizedTweetDTO[] tweets) {
+    public NerResponseMessage(String requestId, String recognizer, RecognizedTextDTO[] texts) {
         this.requestId = requestId;
         this.recognizer = recognizer;
-        this.tweets = tweets;
+        this.texts = texts;
     }
 
     public String getRequestId() {
@@ -32,11 +32,11 @@ public class NerResponseMessage implements ResponseMessage {
         this.recognizer = recognizer;
     }
 
-    public RecognizedTweetDTO[] getTweets() {
-        return tweets;
+    public RecognizedTextDTO[] getTexts() {
+        return texts;
     }
 
-    public void setTweets(RecognizedTweetDTO[] tweets) {
-        this.tweets = tweets;
+    public void setTexts(RecognizedTextDTO[] texts) {
+        this.texts = texts;
     }
 }
