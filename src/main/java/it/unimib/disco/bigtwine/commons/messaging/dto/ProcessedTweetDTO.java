@@ -1,16 +1,12 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
-
-import it.unimib.disco.bigtwine.commons.messaging.dto.CoordinatesDTO;
-import it.unimib.disco.bigtwine.commons.messaging.dto.LinkedEntityDTO;
-import it.unimib.disco.bigtwine.commons.models.ProcessedTweet;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
 import java.io.Serializable;
 
-public class ProcessedTweetDTO implements ProcessedTweet, Serializable {
+public class ProcessedTweetDTO implements Serializable {
     private String id;
     private String text;
     private TwitterUserDTO user;
-    private CoordinatesDTO coordinate;
+    private CoordinatesDTO coordinates;
     private LinkedEntityDTO[] entities;
 
     public ProcessedTweetDTO() {
@@ -49,12 +45,12 @@ public class ProcessedTweetDTO implements ProcessedTweet, Serializable {
         this.user = user;
     }
 
-    public CoordinatesDTO getCoordinate() {
-        return coordinate;
+    public CoordinatesDTO getCoordinates() {
+        return coordinates;
     }
 
-    public void setCoordinate(CoordinatesDTO coordinate) {
-        this.coordinate = coordinate;
+    public void setCoordinate(CoordinatesDTO coordinates) {
+        this.coordinates = coordinates;
     }
 
     public LinkedEntityDTO[] getEntities() {

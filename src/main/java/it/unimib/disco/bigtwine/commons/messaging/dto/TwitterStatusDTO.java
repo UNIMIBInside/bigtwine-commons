@@ -1,40 +1,33 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
-import it.unimib.disco.bigtwine.commons.messaging.dto.CoordinatesDTO;
-import it.unimib.disco.bigtwine.commons.models.TwitterStatus;
+import java.io.Serializable;
 
-public class TwitterStatusDTO implements TwitterStatus {
+public class TwitterStatusDTO implements Serializable {
     private String id;
     private String text;
     private TwitterUserDTO user;
     private CoordinatesDTO coordinates;
 
-    @Override
     public String getId() {
         return id;
     }
 
-    @Override
     public void setId(String id) {
         this.id = id;
     }
 
-    @Override
     public String getText() {
         return text;
     }
 
-    @Override
     public void setText(String text) {
         this.text = text;
     }
 
-    @Override
     public TwitterUserDTO getUser() {
         return user;
     }
 
-    @Override
     public void setUser(TwitterUserDTO user) {
         this.user = user;
     }

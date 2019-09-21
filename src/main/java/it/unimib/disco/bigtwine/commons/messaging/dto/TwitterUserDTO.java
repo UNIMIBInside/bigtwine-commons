@@ -1,11 +1,8 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
-
-import it.unimib.disco.bigtwine.commons.messaging.dto.CoordinatesDTO;
-import it.unimib.disco.bigtwine.commons.models.TwitterUser;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
 import java.io.Serializable;
 
-public class TwitterUserDTO implements TwitterUser, Serializable {
+public class TwitterUserDTO implements Serializable {
     private String id;
     private String name;
     private String screenName;

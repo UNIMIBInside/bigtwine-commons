@@ -1,7 +1,4 @@
-package it.unimib.disco.bigtwine.commons.models.dto;
-
-import it.unimib.disco.bigtwine.commons.messaging.dto.LinkedEntityDTO;
-import it.unimib.disco.bigtwine.commons.models.TwitterStatus;
+package it.unimib.disco.bigtwine.commons.messaging.dto;
 
 import java.io.Serializable;
 
@@ -11,7 +8,7 @@ public class NeelProcessedTweetDTO implements Serializable {
     private TwitterStatusDTO status;
     private LinkedEntityDTO[] entities;
 
-    public TwitterStatus getStatus() {
+    public TwitterStatusDTO getStatus() {
         return status;
     }
 
