@@ -11,7 +11,7 @@ public class TextRangeDTO implements Serializable {
 
     public TextRangeDTO(int start, int end) {
         if (start < 0 || end < 0 || end <= start) {
-            throw new IllegalArgumentException("both `end` and `start must be >= 0 and `end` must be > `start`");
+            throw new IllegalArgumentException("both `end` and `start must be >= 0 and `end` > `start`");
         }
         this.start = start;
         this.end = end;
