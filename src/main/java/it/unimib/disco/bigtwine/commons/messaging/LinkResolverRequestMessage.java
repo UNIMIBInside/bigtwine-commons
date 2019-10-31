@@ -6,6 +6,7 @@ public class LinkResolverRequestMessage implements RequestMessage {
     private String requestId;
     private String outputTopic;
     private LinkDTO[] links;
+    private String[] extraFields;
 
     public LinkResolverRequestMessage() {
     }
@@ -39,5 +40,14 @@ public class LinkResolverRequestMessage implements RequestMessage {
 
     public void setLinks(LinkDTO[] links) {
         this.links = links;
+    }
+
+    public String[] getExtraFields() {
+        return extraFields;
+    }
+
+    public LinkResolverRequestMessage setExtraFields(String[] extraFields) {
+        this.extraFields = extraFields;
+        return this;
     }
 }

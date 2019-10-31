@@ -2,6 +2,7 @@ package it.unimib.disco.bigtwine.commons.messaging.dto;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Map;
 
 public class ResourceDTO implements Serializable {
     private String tag;
@@ -11,6 +12,7 @@ public class ResourceDTO implements Serializable {
     private String thumbLarge;
     private String url;
     private CoordinatesDTO coordinates;
+    private Map<String, Object> extra;
 
     public ResourceDTO() {
     }
@@ -83,5 +85,14 @@ public class ResourceDTO implements Serializable {
 
     public void setCoordinates(CoordinatesDTO coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public Map<String, Object> getExtra() {
+        return extra;
+    }
+
+    public ResourceDTO setExtra(Map<String, Object> extra) {
+        this.extra = extra;
+        return this;
     }
 }
