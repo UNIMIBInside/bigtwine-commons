@@ -1,12 +1,13 @@
 package it.unimib.disco.bigtwine.commons.messaging;
 
 import it.unimib.disco.bigtwine.commons.messaging.dto.LinkDTO;
+import it.unimib.disco.bigtwine.commons.messaging.dto.LinkResolverExtraFieldDTO;
 
 public class LinkResolverRequestMessage implements RequestMessage {
     private String requestId;
     private String outputTopic;
     private LinkDTO[] links;
-    private String[] extraFields;
+    private LinkResolverExtraFieldDTO[] extraFields;
 
     public LinkResolverRequestMessage() {
     }
@@ -14,6 +15,11 @@ public class LinkResolverRequestMessage implements RequestMessage {
     public LinkResolverRequestMessage(String requestId, LinkDTO[] links) {
         this.requestId = requestId;
         this.links = links;
+    }
+
+    public LinkResolverRequestMessage(String requestId, LinkDTO[] links, LinkResolverExtraFieldDTO[] extraFields) {
+        this(requestId, links);
+        this.extraFields = extraFields;
     }
 
     public String getRequestId() {
@@ -42,11 +48,11 @@ public class LinkResolverRequestMessage implements RequestMessage {
         this.links = links;
     }
 
-    public String[] getExtraFields() {
+    public LinkResolverExtraFieldDTO[] getExtraFields() {
         return extraFields;
     }
 
-    public LinkResolverRequestMessage setExtraFields(String[] extraFields) {
+    public LinkResolverRequestMessage setExtraFields(LinkResolverExtraFieldDTO[] extraFields) {
         this.extraFields = extraFields;
         return this;
     }
