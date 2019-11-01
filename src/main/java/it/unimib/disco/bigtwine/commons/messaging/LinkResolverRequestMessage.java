@@ -52,8 +52,7 @@ public class LinkResolverRequestMessage implements RequestMessage {
         return extraFields;
     }
 
-    public LinkResolverRequestMessage setExtraFields(LinkResolverExtraFieldDTO[] extraFields) {
+    public void setExtraFields(LinkResolverExtraFieldDTO[] extraFields) {
         this.extraFields = extraFields;
-        return this;
     }
 }

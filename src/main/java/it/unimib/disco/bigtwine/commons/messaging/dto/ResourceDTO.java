@@ -91,8 +91,7 @@ public class ResourceDTO implements Serializable {
         return extra;
     }
 
-    public ResourceDTO setExtra(Map<String, Object> extra) {
+    public void setExtra(Map<String, Object> extra) {
         this.extra = extra;
-        return this;
     }
 }
