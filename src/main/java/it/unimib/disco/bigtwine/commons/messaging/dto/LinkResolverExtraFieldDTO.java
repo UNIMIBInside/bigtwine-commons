@@ -7,6 +7,7 @@ public class LinkResolverExtraFieldDTO implements Serializable {
 
     private String valuePath;
     private String saveAs;
+    private boolean isList;
 
     public LinkResolverExtraFieldDTO() {
     }
@@ -14,6 +15,11 @@ public class LinkResolverExtraFieldDTO implements Serializable {
     public LinkResolverExtraFieldDTO(String valuePath, String saveAs) {
         this.valuePath = valuePath;
         this.saveAs = saveAs;
+    }
+
+    public LinkResolverExtraFieldDTO(String valuePath, String saveAs, boolean isList) {
+        this(valuePath, saveAs);
+        this.isList = isList;
     }
 
     public String getValuePath() {
@@ -30,5 +36,13 @@ public class LinkResolverExtraFieldDTO implements Serializable {
 
     public void setSaveAs(String saveAs) {
         this.saveAs = saveAs;
+    }
+
+    public boolean isList() {
+        return isList;
+    }
+
+    public void setList(boolean list) {
+        isList = list;
     }
 }
