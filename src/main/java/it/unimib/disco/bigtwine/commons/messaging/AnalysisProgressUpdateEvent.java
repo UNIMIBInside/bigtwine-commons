@@ -7,6 +7,7 @@ import java.time.Instant;
 public class AnalysisProgressUpdateEvent implements Event {
     private String analysisId;
     private JobTypeEnum jobType;
+    private String reference;
     private Instant timestamp;
     private double progress;
     private boolean completed;
@@ -30,6 +31,14 @@ public class AnalysisProgressUpdateEvent implements Event {
 
     public void setJobType(JobTypeEnum jobType) {
         this.jobType = jobType;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public Instant getTimestamp() {
