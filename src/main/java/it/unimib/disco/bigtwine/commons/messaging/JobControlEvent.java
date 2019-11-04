@@ -8,6 +8,7 @@ public class JobControlEvent implements Event {
     private String jobId;
     private JobTypeEnum jobType;
     private JobActionEnum action;
+    private String reference;
 
     public JobControlEvent() {
     }
@@ -42,5 +43,13 @@ public class JobControlEvent implements Event {
 
     public void setAction(JobActionEnum action) {
         this.action = action;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 }
