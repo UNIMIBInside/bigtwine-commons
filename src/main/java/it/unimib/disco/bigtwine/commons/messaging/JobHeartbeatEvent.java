@@ -4,6 +4,7 @@ import java.time.Instant;
 
 public class JobHeartbeatEvent implements Event {
     private String jobId;
+    private String reference;
     private Instant timestamp;
     private boolean isLast = false;
     private boolean failed = false;
@@ -19,6 +20,14 @@ public class JobHeartbeatEvent implements Event {
 
     public void setJobId(String jobId) {
         this.jobId = jobId;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public Instant getTimestamp() {
