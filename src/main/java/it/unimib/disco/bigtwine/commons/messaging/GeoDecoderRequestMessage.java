@@ -5,13 +5,18 @@ import it.unimib.disco.bigtwine.commons.messaging.dto.LocationDTO;
 public class GeoDecoderRequestMessage implements RequestMessage {
     private String requestId;
     private String outputTopic;
+    private long timestamp;
+    private long expiration;
     private String decoder = "default";
     private LocationDTO[] locations;
 
     public GeoDecoderRequestMessage() {
+        this.timestamp = System.currentTimeMillis();
+        this.expiration = -1;
     }
 
     public GeoDecoderRequestMessage(String requestId, String decoder, LocationDTO[] locations) {
+        this();
         this.requestId = requestId;
         this.decoder = decoder;
         this.locations = locations;
@@ -20,6 +25,11 @@ public class GeoDecoderRequestMessage implements RequestMessage {
     public GeoDecoderRequestMessage(String requestId, String decoder, LocationDTO[] locations, String outputTopicId) {
         this(requestId, decoder, locations);
         this.outputTopic = outputTopicId;
+    }
+
+    public GeoDecoderRequestMessage(String requestId, String decoder, LocationDTO[] locations, String outputTopicId, long expiration) {
+        this(requestId, decoder, locations, outputTopicId);
+        this.expiration = expiration;
     }
 
     public String getRequestId() {
@@ -54,5 +64,25 @@ public class GeoDecoderRequestMessage implements RequestMessage {
 
     public void setLocations(LocationDTO[] locations) {
         this.locations = locations;
+    }
+
+    @Override
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    @Override
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @Override
+    public long getExpiration() {
+        return expiration;
+    }
+
+    @Override
+    public void setExpiration(long expiration) {
+        this.expiration = expiration;
     }
 }

@@ -6,6 +6,7 @@ public class NerResponseMessage implements ResponseMessage {
     private String requestId;
     private String recognizer = "default";
     private RecognizedTextDTO[] texts;
+    private Status status;
 
     public NerResponseMessage() {
     }
@@ -38,5 +39,15 @@ public class NerResponseMessage implements ResponseMessage {
 
     public void setTexts(RecognizedTextDTO[] texts) {
         this.texts = texts;
+    }
+
+    @Override
+    public Status getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

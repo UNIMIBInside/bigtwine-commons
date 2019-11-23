@@ -7,4 +7,8 @@ public interface RequestMessage extends Serializable {
     void setRequestId(String requestId);
     String getOutputTopic();
     void setOutputTopic(String topicId);
+    long getTimestamp();
+    void setTimestamp(long timestamp);
+    long getExpiration();
+    void setExpiration(long expiration);
 }

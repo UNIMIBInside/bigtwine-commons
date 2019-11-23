@@ -6,14 +6,19 @@ import it.unimib.disco.bigtwine.commons.messaging.dto.LinkResolverExtraFieldDTO;
 public class LinkResolverRequestMessage implements RequestMessage {
     private String requestId;
     private String outputTopic;
+    private long timestamp;
+    private long expiration;
     private LinkDTO[] links;
     private LinkResolverExtraFieldDTO[] extraFields;
     private boolean skipCache = false;
 
     public LinkResolverRequestMessage() {
+        this.timestamp = System.currentTimeMillis();
+        this.expiration = -1;
     }
 
     public LinkResolverRequestMessage(String requestId, LinkDTO[] links) {
+        this();
         this.requestId = requestId;
         this.links = links;
     }
@@ -21,6 +26,11 @@ public class LinkResolverRequestMessage implements RequestMessage {
     public LinkResolverRequestMessage(String requestId, LinkDTO[] links, LinkResolverExtraFieldDTO[] extraFields) {
         this(requestId, links);
         this.extraFields = extraFields;
+    }
+
+    public LinkResolverRequestMessage(String requestId, LinkDTO[] links, LinkResolverExtraFieldDTO[] extraFields, long expiration) {
+        this(requestId, links, extraFields);
+        this.expiration = expiration;
     }
 
     public String getRequestId() {
@@ -63,5 +73,25 @@ public class LinkResolverRequestMessage implements RequestMessage {
 
     public void setSkipCache(boolean skipCache) {
         this.skipCache = skipCache;
+    }
+
+    @Override
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    @Override
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @Override
+    public long getExpiration() {
+        return expiration;
+    }
+
+    @Override
+    public void setExpiration(long expiration) {
+        this.expiration = expiration;
     }
 }

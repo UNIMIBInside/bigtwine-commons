@@ -6,6 +6,7 @@ public class GeoDecoderResponseMessage implements ResponseMessage {
     private String requestId;
     private String decoder = "default";
     private DecodedLocationDTO[] locations;
+    private Status status;
 
     public GeoDecoderResponseMessage() {
     }
@@ -38,5 +39,15 @@ public class GeoDecoderResponseMessage implements ResponseMessage {
 
     public void setLocations(DecodedLocationDTO[] locations) {
         this.locations = locations;
+    }
+
+    @Override
+    public Status getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

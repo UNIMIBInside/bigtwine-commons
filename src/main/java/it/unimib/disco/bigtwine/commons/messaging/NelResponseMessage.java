@@ -6,6 +6,7 @@ public class NelResponseMessage implements ResponseMessage {
     private String requestId;
     private String linker = "default";
     private LinkedTextDTO[] texts;
+    private Status status;
 
     public NelResponseMessage() {
     }
@@ -38,5 +39,15 @@ public class NelResponseMessage implements ResponseMessage {
 
     public void setTexts(LinkedTextDTO[] texts) {
         this.texts = texts;
+    }
+
+    @Override
+    public Status getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

@@ -5,6 +5,7 @@ import it.unimib.disco.bigtwine.commons.messaging.dto.ResourceDTO;
 public class LinkResolverResponseMessage implements ResponseMessage {
     private String requestId;
     private ResourceDTO[] resources;
+    private Status status;
 
     public LinkResolverResponseMessage() {
     }
@@ -28,5 +29,15 @@ public class LinkResolverResponseMessage implements ResponseMessage {
 
     public void setResources(ResourceDTO[] resources) {
         this.resources = resources;
+    }
+
+    @Override
+    public Status getStatus() {
+        return status;
+    }
+
+    @Override
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
