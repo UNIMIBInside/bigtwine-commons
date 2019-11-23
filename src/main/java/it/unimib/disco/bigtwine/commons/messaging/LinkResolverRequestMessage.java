@@ -8,6 +8,7 @@ public class LinkResolverRequestMessage implements RequestMessage {
     private String outputTopic;
     private LinkDTO[] links;
     private LinkResolverExtraFieldDTO[] extraFields;
+    private boolean skipCache = false;
 
     public LinkResolverRequestMessage() {
     }
@@ -54,5 +55,13 @@ public class LinkResolverRequestMessage implements RequestMessage {
 
     public void setExtraFields(LinkResolverExtraFieldDTO[] extraFields) {
         this.extraFields = extraFields;
+    }
+
+    public boolean isSkipCache() {
+        return skipCache;
+    }
+
+    public void setSkipCache(boolean skipCache) {
+        this.skipCache = skipCache;
     }
 }
