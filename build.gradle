@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "com.github.hierynomus.license" version "0.15.0"
 }
 
 group 'it.unimib.disco.bigtwine'
@@ -19,4 +20,9 @@ dependencies {
     compile group: 'com.github.docker-java', name: 'docker-java', version: '3.1.4'
     compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+downloadLicenses {
+    dependencyConfiguration = 'compile'
+    includeProjectDependencies = true
 }
